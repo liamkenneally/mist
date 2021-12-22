@@ -3,7 +3,9 @@ class Sites(object):
         super(Sites, self).__init__()
         self._session = session
         
-
+#========================================================= TODO GETs ===============================================================#
+# -- Update all the docstrings, they are currently copied from the Merkaki base docstring 
+# -- Update all the metadata to ensure it is accurate
 
     def getSites(self, org_id):
         """
@@ -326,6 +328,8 @@ class Sites(object):
         return self._session.get(metadata, resource) 
 
 
+#==================================================== TODO POSTs ======================================================================#
+
     def createSite(self, org_id: str, name: str, notes: str, timezone: str, country_code: str, latlng: dict, 
                    address: str, lat: float, lng: float, sitegroup_ids: list, rftemplate_id: str, apporttemplate_id: str,
                    secpolicy_id: str, alarmtemplate_id: str, networktemplate_id: str, gatewaytemplate_id: str, **kwargs):
@@ -352,3 +356,10 @@ class Sites(object):
         payload = {k.strip(): v for k, v in kwargs.items() if k.strip() in body_params}
 
         return self._session.post(metadata, resource, payload)
+    
+    
+    #==================================================== TODO PUTs ======================================================================#
+    
+    #==================================================== TODO PATCHs ======================================================================#
+    
+    #==================================================== TODO DELETEs ======================================================================#
