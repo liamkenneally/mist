@@ -2,7 +2,8 @@ from mist import *
 
 
 dash = DashboardAPI(api_key=config.API_KEY_ENVIRONMENT_VARIABLE)
-doc = dash.sites.getSelf()
+doc = dash.docs.getAPIDocs()
+doc1 = dash.docs.getAPIDocs()
 org_id = doc["privileges"][0]["org_id"]
 
 

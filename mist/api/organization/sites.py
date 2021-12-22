@@ -7,6 +7,22 @@ class Sites(object):
 # -- Update all the docstrings, they are currently copied from the Merkaki base docstring 
 # -- Update all the metadata to ensure it is accurate
 
+    def getSelf(self):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getSelf'],
+            'operation': 'getSelf'
+        }
+        resource = f'/self'
+
+        return self._session.get(metadata, resource)
+
+
     def getSites(self, org_id):
         """
         **Return the DHCP subnet information for an appliance**

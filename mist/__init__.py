@@ -5,7 +5,6 @@ import os
 from .rest_session import *
 
 
-from .api.docs import Docs
 from .api.organization.sites import Sites
 
 
@@ -121,7 +120,6 @@ class DashboardAPI(object):
 
 
         # API endpoints by section
-        self.docs = Docs(self._session)
         self.sites = Sites(self._session)
 
 
