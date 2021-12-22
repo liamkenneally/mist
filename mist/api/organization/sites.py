@@ -246,7 +246,7 @@ class Sites(object):
 
 
 # TODO Needs further testing - Doesnt work
-    def getListofAlarmTemplates(self, org_id):
+    def getAlarmTemplates(self, org_id):
         """
         **Return the DHCP subnet information for an appliance**
         https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
@@ -254,8 +254,8 @@ class Sites(object):
         """
 
         metadata = {
-            'tags': ['getListofAlarmTemplates'],
-            'operation': 'getListofAlarmTemplates'
+            'tags': ['getAlarmTemplates'],
+            'operation': 'getAlarmTemplates'
         }
         resource = f'/installer/orgs/{org_id}/alarmtemplates'
 
@@ -263,7 +263,7 @@ class Sites(object):
     
 
 # TODO Needs further testing - Doesnt work
-    def getListofrSecurityPolicies(self, org_id):
+    def getSecurityPolicies(self, org_id):
         """
         **Return the DHCP subnet information for an appliance**
         https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
@@ -271,8 +271,8 @@ class Sites(object):
         """
 
         metadata = {
-            'tags': ['getListofSecurityPolicies'],
-            'operation': 'getListofSecurityPolicies'
+            'tags': ['getSecurityPolicies'],
+            'operation': 'getSecurityPolicies'
         }
         resource = f'/installer/orgs/{org_id}/secpolicies'
 
