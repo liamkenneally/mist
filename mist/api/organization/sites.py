@@ -344,6 +344,212 @@ class Sites(object):
         return self._session.get(metadata, resource) 
 
 
+# ===== TODO Need to test this. Cannot find "AP Template in Mist Dash. Will need to create one via API when I get to POSTs" ======#
+    def getAPTemplates(self, org_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getAPTemplates'],
+            'operation': 'getAPTemplates'
+        }
+        resource = f'/orgs/{org_id}/aptemplates'
+
+        return self._session.get(metadata, resource) 
+    
+    
+    # ===== TODO Need to test this. Cannot find "AP Template" in Mist Dash. Will need to create one via API when I get to POSTs" ======#
+    def getAPTemplate(self, org_id, aptemplate_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getAPTemplate'],
+            'operation': 'getAPTemplate'
+        }
+        resource = f'/orgs/{org_id}/aptemplates/{aptemplate_id}'
+
+        return self._session.get(metadata, resource) 
+
+
+    # ===== TODO Need to test this. Cannot find "Networks" in Mist Dash. Will need to create one via API when I get to POSTs" ======#
+    def getNetworks(self, org_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getNetworks'],
+            'operation': 'getNetworks'
+        }
+        resource = f'/orgs/{org_id}/networks'
+
+        return self._session.get(metadata, resource) 
+    
+    
+# ===== TODO Need to test this. Cannot find "Networks" in Mist Dash. Will need to create one via API when I get to POSTs" ======#
+    def getNetwork(self, org_id, network_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getNetwork'],
+            'operation': 'getNetwork'
+        }
+        resource = f'/orgs/{org_id}/networks/{network_id}'
+
+        return self._session.get(metadata, resource) 
+
+
+# ===== TODO Need to test this. Cannot find "Gateways" in Mist Dash. Will need to create one via API when I get to POSTs" ======#
+    def getGatewayTemplates(self, org_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getGatewayTemplates'],
+            'operation': 'getGatewayTemplates'
+        }
+        resource = f'/orgs/{org_id}/gatewaytemplates'
+
+        return self._session.get(metadata, resource) 
+    
+    
+# ===== TODO Need to test this. Cannot find "Gateways" in Mist Dash. Will need to create one via API when I get to POSTs" ======# 
+    def getGatewayTemplate(self, org_id, gatewaytemplate_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getGatewayTemplate'],
+            'operation': 'getGatewayTemplate'
+        }
+        resource = f'/orgs/{org_id}/gatewaytemplates/{gatewaytemplate_id}'
+
+        return self._session.get(metadata, resource) 
+    
+    
+    def getDevices(self, org_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getDevices'],
+            'operation': 'getDevices'
+        }
+        resource = f'/orgs/{org_id}/devices'
+
+        return self._session.get(metadata, resource) 
+    
+    
+    def getTemplates(self, org_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getTemplates'],
+            'operation': 'getTemplates'
+        }
+        resource = f'/orgs/{org_id}/templates'
+
+        return self._session.get(metadata, resource) 
+    
+    
+# ===== TODO Need to test this. Cannot find "template_id" in Mist Dash. Will need to create one via API when I get to POSTs" ======#   
+    def getTemplate(self, org_id, template_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getTemplate'],
+            'operation': 'getTemplate'
+        }
+        resource = f'/orgs/{org_id}/templates/{template_id}'
+
+        return self._session.get(metadata, resource) 
+    
+
+# =================================== TODO - Further testing required =========================================#
+    def getAssetsStatus(self, org_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getAssetsStatus'],
+            'operation': 'getAssetsStatus'
+        }
+        resource = f'/orgs/{org_id}/stats/assets/search'
+
+        return self._session.get(metadata, resource)
+    
+
+# =================================== TODO - Further testing required =========================================#
+    def getAssetStatus(self, org_id, mac):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getAssetStatus'],
+            'operation': 'getAssetStatus'
+        }
+        resource = f'/orgs/{org_id}/stats/assets/search?mac="{mac}'
+
+        return self._session.get(metadata, resource)
+    
+    
+    # =================================== TODO - Further testing required =========================================#
+    def getAssetsCount(self, org_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getAssetsCount'],
+            'operation': 'getAssetsCount'
+        }
+        resource = f'/orgs/{org_id}/stats/assets/count'
+
+        return self._session.get(metadata, resource)
+
+
+
+
+
+
 #==================================================== TODO POSTs ======================================================================#
 
     def createSite(self, org_id: str, name: str, notes: str, timezone: str, country_code: str, latlng: dict, 

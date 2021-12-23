@@ -80,3 +80,16 @@ test20 = dash.sites.getNetworkTemplate(org_id, networktemplate_id)
 # WORKS FINE
 #test21 = dash.sites.createSite(org_id, "Test Site by API", "Crreated via Python API - final test", "Europe/London", "GB", {}, "35 Tallis Grove, London SE7 7FL, UK", 0, 0, [], rftemplate_id, '', '', '', '', '')
 #print(test21)
+
+test21 = dash.sites.getDevices(org_id)
+
+
+test22 = dash.sites.getTemplates(org_id)
+
+
+#test23 = dash.sites.getNetworkTemplate(org_id, template_id)
+#print(test23)
+
+
+test24 = dash.sites.getAssetsCount(org_id,)
+print(test24)
