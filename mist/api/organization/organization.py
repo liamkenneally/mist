@@ -1,6 +1,6 @@
-class Sites(object):
+class Organization(object):
     def __init__(self, session):
-        super(Sites, self).__init__()
+        super(Organization, self).__init__()
         self._session = session
         
 #========================================================= TODO GETs ===============================================================#

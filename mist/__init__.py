@@ -5,7 +5,7 @@ import os
 from .rest_session import *
 
 
-from .api.organization.sites import Sites
+from .api.organization.organization import Organization
 
 
 #========= TODO TO BE REMOVED AS MIST FEATURES IMPLIMENTED ===========#
@@ -120,7 +120,7 @@ class DashboardAPI(object):
 
 
         # API endpoints by section
-        self.sites = Sites(self._session)
+        self.organization = Organization(self._session)
 
 
 #========= TODO TO BE REMOVED AS MIST FEATURES IMPLIMENTED ===========#
