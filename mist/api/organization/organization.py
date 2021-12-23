@@ -6,6 +6,8 @@ class Organization(object):
 #========================================================= TODO GETs ===============================================================#
 # -- Update all the docstrings, they are currently copied from the Merkaki base docstring 
 # -- Update all the metadata to ensure it is accurate
+# update tags so that it represents the GUI for example for getSites() tags should be Organization > Site Configuration > Sites 
+# With operation tag as: getSites
 
     def getSelf(self):
         """
@@ -31,7 +33,7 @@ class Organization(object):
         """
 
         metadata = {
-            'tags': ['getSites'],
+            'tags': ['Organization', 'Site Confioguration', 'Sites'],
             'operation': 'getSites'
         }
         resource = f'/orgs/{org_id}/sites'
