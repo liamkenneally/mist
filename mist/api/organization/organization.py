@@ -612,6 +612,157 @@ class Organization(object):
         return self._session.get(metadata, resource)
     
     
+    def getGeneratedReport(self, org_id, generated_report):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getGeneratedReports'],
+            'operation': 'getGeneratedReports'
+        }
+        resource = f'/orgs/{org_id}/generated_reports/{generated_report}/download?fmt=pdf'
+
+        return self._session.get(metadata, resource)
+    
+    
+    # start=1546300800&end=-1d
+    # start time seems to be in unix time format
+    # Relative time supported? such as -1d, -2hr, -1w
+    def getTickets(self, org_id, start_time, end_time):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getTickets'],
+            'operation': 'getTickets'
+        }
+        resource = f'/orgs/{org_id}/tickets?start={start_time}&end={end_time}'
+
+        return self._session.get(metadata, resource)
+    
+    
+    def getTicketDetail(self, org_id, ticket_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getTicketDetail'],
+            'operation': 'getTicketDetail'
+        }
+        resource = f'/orgs/{org_id}/tickets/{ticket_id}'
+
+        return self._session.get(metadata, resource)
+    
+    
+    def getSSOs(self, org_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getSSOs'],
+            'operation': 'getSSOs'
+        }
+        resource = f'/orgs/{org_id}/ssos'
+
+        return self._session.get(metadata, resource)
+    
+    
+    def getSAMLMetadata(self, org_id, sso_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getSAMLMetadata'],
+            'operation': 'getSAMLMetadata'
+        }
+        resource = f'/orgs/{org_id}/ssos/{sso_id}/metadata'
+
+        return self._session.get(metadata, resource)
+    
+    
+    # TODO - Needs further testing 
+    # Need to test how the SDK handles an XML document. Currently, configured to parse json
+    def getSAMLMetadataDownload(self, org_id, sso_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getSAMLMetadata'],
+            'operation': 'getSAMLMetadata'
+        }
+        resource = f'/orgs/{org_id}/ssos/{sso_id}/metadata.xml'
+
+        return self._session.get(metadata, resource)
+    
+    
+    def getSSOFailures(self, org_id, sso_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getSSOFailures'],
+            'operation': 'getSSOFailures'
+        }
+        resource = f'/orgs/{org_id}/ssos/{sso_id}/failures'
+
+        return self._session.get(metadata, resource)
+    
+    
+    def getSSORoles(self, org_id, sso_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getSSOFailures'],
+            'operation': 'getSSOFailures'
+        }
+        resource = f'/orgs/{org_id}/ssos/{sso_id}/ssoroles'
+
+        return self._session.get(metadata, resource)
+    
+    
+    def getSubscriptions(self):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getSubscriptions'],
+            'operation': 'getSubscriptions'
+        }
+        resource = f'/self/subscriptions'
+
+        return self._session.get(metadata, resource)
+
+
+    
+    
     
 
 
