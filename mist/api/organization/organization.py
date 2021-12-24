@@ -546,10 +546,73 @@ class Organization(object):
         resource = f'/orgs/{org_id}/stats/assets/count'
 
         return self._session.get(metadata, resource)
+    
+
+    def getDeviceProfiles(self, org_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getDeviceProfiles'],
+            'operation': 'getDeviceProfiles'
+        }
+        resource = f'/orgs/{org_id}/deviceprofiles'
+
+        return self._session.get(metadata, resource)
+    
+    
+    def getDeviceProfile(self, org_id, deviceprofile_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getDeviceProfiles'],
+            'operation': 'getDeviceProfiles'
+        }
+        resource = f'/orgs/{org_id}/deviceprofiles/{deviceprofile_id}'
+
+        return self._session.get(metadata, resource)
 
 
+    def getPSK(self, org_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
 
+        metadata = {
+            'tags': ['getDeviceProfiles'],
+            'operation': 'getDeviceProfiles'
+        }
+        resource = f'/orgs/{org_id}/psks'
 
+        return self._session.get(metadata, resource)
+    
+    
+    def getGeneratedReports(self, org_id):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnetsr
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getGeneratedReports'],
+            'operation': 'getGeneratedReports'
+        }
+        resource = f'/orgs/{org_id}/generated_reports'
+
+        return self._session.get(metadata, resource)
+    
+    
+    
 
 
 #==================================================== TODO POSTs ======================================================================#

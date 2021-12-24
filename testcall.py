@@ -92,4 +92,10 @@ test22 = dash.organization.getTemplates(org_id)
 
 
 test24 = dash.organization.getAssetsCount(org_id,)
-print(test24)
+
+
+test25 = dash.organization.getDeviceProfiles(org_id)
+
+
+test26 = dash.organization.getPSK(org_id)
+print(test26)
