@@ -1,7 +1,7 @@
 # mist
 ## I will update this soon 
 A replica of the Meraki API for Mist
-## API Call Information 
+## API Endpoint Information 
 There are four files named organization_all_[gets, deletes, posts, pulls].txt. These files are scrapes from the Mist API documentation (https://api.mist.com/api/v1/docs/Org)
 This scrape as of 27/12/2021 includeds all the documnented Mist APIs for the "Organization" APIs. "Site" APIs will be added later with their own respective txt file
 
