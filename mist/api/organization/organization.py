@@ -889,31 +889,118 @@ class Organization(object):
 #==================================================== TODO POSTs ======================================================================#
 
     def createSite(self, org_id: str, name: str, notes: str, timezone: str, country_code: str, latlng: dict, 
-                   address: str, lat: float, lng: float, sitegroup_ids: list, rftemplate_id: str, apporttemplate_id: str,
+                   address: str, sitegroup_ids: list, rftemplate_id: str, apporttemplate_id: str,
                    secpolicy_id: str, alarmtemplate_id: str, networktemplate_id: str, gatewaytemplate_id: str, **kwargs):
         """
-        **Add a static route for an MX or teleworker network**
-        https://developer.cisco.com/meraki/api-v1/#!create-network-appliance-static-route
-        - networkId (string): (required)
-        - name (string): The name of the new static route
-        - subnet (string): The subnet of the static route
-        - gatewayIp (string): The gateway IP (next hop) of the static route
-        - gatewayVlanId (string): The gateway IP (next hop) VLAN ID of the static route
+        **Create a Site in the specified org_id**
+        - org_id (string): (required)
+        - name (string): (required) The name of the site
+        - timezone (string): (optional) Timezone of the site
+        - country_code (string): (optional) Country code for the site (For AP config generation), in two character
+        - latlng (dict): (optional) Site location
+            - lat (float): (optional) Latitude
+            - lng (float): (optional) Longitude
+        - address (string): (optional) Full address of the site
+        - sitegroup_ids (list): (optional) List of sitegroups the site belongs to
+        - rftemplate_id (string): (optional) RF Template ID, this takes precedence over Site Settings
+        - apporttemplate_id (string): (optional) APPort Template ID
+        - secpolicy_id (string): (optional) SecPolicy ID
+        - alarmtemplate_id (string): (optional) Alarm Template ID, this takes precedence over the Org-level alarmtemplate_id
+        - networktemplate_id (string): (optional) Network Template ID where site can use as its base Site Setting
+        - gatewaytemplate_id (string): (optional) Gateway Template ID, used by gateways
         """
 
         kwargs.update(locals())
 
         metadata = {
-            'tags': ['appliance', 'configure', 'staticRoutes'],
-            'operation': 'createNetworkApplianceStaticRoute'
+            'tags': ['createSite'],
+            'operation': 'createSite'
         }
         resource = f'/orgs/{org_id}/sites'
 
-        body_params = ['name', 'notes', 'timezone', 'country_code', 'latlng', 'address', 'lat', 'lng', 'sitegroup_ids', 'rftemplate_id', 
+        body_params = ['name', 'notes', 'timezone', 'country_code', 'latlng', 'address', 'sitegroup_ids', 'rftemplate_id', 
                        'apporttemplate_id', 'secpolicy_id', 'alarmtemplate_id', 'networktemplate_id', 'gatewaytemplate_id', ]
         payload = {k.strip(): v for k, v in kwargs.items() if k.strip() in body_params}
 
         return self._session.post(metadata, resource, payload)
+    
+    
+    def AddInventory(self, org_id: str, ListOfClaimCodes: list, **kwargs):
+        """
+        **Add inventoy to the org_id**
+        - org_id (string): (required)
+        - listOfClaimCodes (list): A list of claim codes e.g ["AAAAA-AAAAAA-AAAAAA", "BBBBB-BBBBB-BBBBB"]
+        """
+        
+        kwargs.update(locals())
+
+        metadata = {
+            'tags': ['AddInventory'],
+            'operation': 'AddInventory'
+        }
+        resource = f'/orgs/{org_id}/inventory'
+
+      
+        payload = ListOfClaimCodes
+
+        return self._session.post(metadata, resource, payload)
+    
+    
+    def inviteAdmin(self, org_id: str, email: str, first_name: str, last_name: str, privileges: list, hours: int, **kwargs):
+        """
+        **Invite and Admin to the org_id**
+        - org_id (string): (required)
+        - email (string): (required) Email - admin_id is not exposed
+        - first_name (string): (optional) First name, used in the invitation text
+        - last_name (string): (optional) Last name
+        - privileges (list): (optional) List of privileges the admin has on the orgs/sites
+            - scope (string): (optional) Site | org | sitegroup
+            - role (string): (optional) Admin | write | read | helpdesk
+            - site_id (string): (optional) Site id
+        - hours (int): (optional) How long the invite should be valid, default is 1 day. Max is capped at 1 week
+        """
+
+        kwargs.update(locals())
+
+        metadata = {
+            'tags': ['inviteAdmin'],
+            'operation': 'inviteAdmin'
+        }
+        resource = f'/orgs/{org_id}/invites'
+
+        body_params = ['email', 'first_name', 'last_name', 'privileges', 'hours',]
+        payload = {k.strip(): v for k, v in kwargs.items() if k.strip() in body_params}
+
+        return self._session.post(metadata, resource, payload)
+    
+    
+    def verifyToken(self, token: str, **kwargs):
+        """
+        **Verify a Token emailed to a user**
+        - token (str): Token emailed to the user as part of the inviteAdmin()
+        """
+        
+        kwargs.update(locals())
+
+        metadata = {
+            'tags': ['AddInventory'],
+            'operation': 'AddInventory'
+        }
+        resource = f'/invite/verify/{token}'
+
+      
+        payload = None
+
+        return self._session.post(metadata, resource, payload)
+    
+    
+    
+
+    
+    
+    
+    
+    
     
     
     #==================================================== TODO PUTs ======================================================================#
@@ -921,3 +1008,20 @@ class Organization(object):
     #==================================================== TODO PATCHs ======================================================================#
     
     #==================================================== TODO DELETEs ======================================================================#
+    
+    
+    def deleteInvitedAdmin(self, org_id: str, invite_id: str):
+        """
+        **Delete a RF Profile**
+        https://developer.cisco.com/meraki/api-v1/#!delete-network-wireless-rf-profile
+        - networkId (string): (required)
+        - rfProfileId (string): (required)
+        """
+
+        metadata = {
+            'tags': ['deleteInvitedAdmin'],
+            'operation': 'deleteInvitedAdmin'
+        }
+        resource = f'/orgs/{org_id}/invites/{invite_id}'
+
+        return self._session.delete(metadata, resource)

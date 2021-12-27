@@ -4,12 +4,25 @@ NOTE: This is for the "Organization" APIs at the moment - "Site" APIs will be ad
 As these are implemented they will be marked as "WIP", "Testing" or "Completed", "Not Implemented"  
 # =================================================================================== NOTES =================================================================================== #
 
-# WIP
+# COMPLETED
 POST /api/v1/orgs/:org_id/sites
-
-# NOT IMPLEMENTED
 POST /api/v1/orgs/:org_id/inventory
 POST /api/v1/orgs/:org_id/invites
+
+
+
+
+
+
+
+
+
+
+# WIP
+
+
+# NOT IMPLEMENTED
+
 POST /api/v1/invite/verify/:token
 POST /api/v1/orgs/:org_id/apitokens
 POST /api/v1/orgs/:org_id/sdkinvites

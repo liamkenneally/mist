@@ -111,7 +111,20 @@ test30 = dash.organization.getAdmins(org_id)
 
 
 
-test31 = dash.organization.getOrgCRLFile(org_id)
-print(test31)
+test31 = dash.organization.AddInventory(org_id, ListOfClaimCodes=["SXT2F-DW9TJ-SKWEQ", "AAAAA-AAAAA-AAAAA"])
+
+
+
+#test32 = dash.organization.inviteAdmin(org_id, email="liamkenneally469@gmail.com", first_name="Liam", last_name="K", hours=4, privileges=[{'scope': 'org', 'role': 'admin'}])
+#print(test32)
+
+#test34 = dash.organization.getAdmins(org_id)
+#print(test34)
+
+test33 = dash.organization.deleteInvitedAdmin(org_id, invite_id="9c16d84f-1487-424c-9cf7-5309d11a9561")
+print(test33)
+
+test34 = dash.organization.getAdmins(org_id)
+print(test34)
 
 

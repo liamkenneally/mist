@@ -4,10 +4,17 @@ NOTE: This is for the "Organization" APIs at the moment - "Site" APIs will be ad
 As these are implemented they will be marked as "WIP", "Testing" or "Completed", "Not Implemented" 
 # =================================================================================== NOTES =================================================================================== #
 
+
+
+# COMPLETED
+DELETE /api/v1/orgs/:org_id/invites/:invite_id
+
+
+
 # NOT IMPLEMENTED
 DELETE /api/v1/sites/:site_id
 DELETE /api/v1/orgs/:org_id/admins/:admin_id
-DELETE /api/v1/orgs/:org_id/invites/:invite_id
+
 DELETE /api/v1/orgs/:org_id/apitokens/:apitoken_id
 DELETE /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id
 DELETE /api/v1/orgs/:org_id/sdktemplates/:sdktemplate_id
