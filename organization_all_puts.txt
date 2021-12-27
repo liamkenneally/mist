@@ -1,10 +1,10 @@
 # =================================================================================== NOTES =================================================================================== #
 A list of all PUT APIs scraped from the Mist API documentation as of 26/12/2021 
 NOTE: This is for the "Organization" APIs at the moment - "Site" APIs will be added later https://api.mist.com/api/v1/docs/Org
-As these are implemented they will be marked as "WIP", "Testing" or "Completed" 
+As these are implemented they will be marked as "WIP", "Testing" or "Completed", "Not Implemented"  
 # =================================================================================== NOTES =================================================================================== #
 
-
+# NOT IMPLEMENTED
 PUT /api/v1/sites/:site_id
 PUT /api/v1/orgs/:org_id/inventory
 PUT /api/v1/orgs/:org_id/inventory
