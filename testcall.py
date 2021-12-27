@@ -105,8 +105,13 @@ test28 = dash.organization.getsupportedChannels(country_code='GB')
 
 
 test29 = dash.organization.getInventory(org_id)
-print(test29)
 
 
+test30 = dash.organization.getAdmins(org_id)
+
+
+
+test31 = dash.organization.getOrgCRLFile(org_id)
+print(test31)
 
 

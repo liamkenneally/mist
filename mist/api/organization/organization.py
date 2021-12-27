@@ -103,8 +103,6 @@ class Organization(object):
         - vc_mac (string): (optional) Specify the virtual chassis mac that you would like to get e.g. 'a1ae23ace563'
         - vc (TBC): (optional): Not documented, but listed as a supported filter 
         - unassigned (TBC): (optional): Not documented, but listed as a supported filter 
-        
-        
         """
 
         kwargs.update(locals())
@@ -127,9 +125,8 @@ class Organization(object):
 
     def getAdmins(self, org_id):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get a list of admins for the org_id**
+        - org_id (string): (required)
         """
 
         metadata = {
@@ -143,9 +140,7 @@ class Organization(object):
     
     def getSelf(self):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get info on current authenticated user**
         """
 
         metadata = {
@@ -159,9 +154,8 @@ class Organization(object):
     
     def getAPITokens(self, org_id):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get a list of organisation API Tokens**
+        - org_id (string): (required)
         """
 
         metadata = {
@@ -173,15 +167,43 @@ class Organization(object):
         return self._session.get(metadata, resource)
     
     
-   
-    # Get API Token
+    def getAPIToken(self, org_id, apitoken_id):
+        """
+        **Get a specific API Token by apitoken_id**
+        - org_id (string): (required)
+        - apitoken_id (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getAPIToken'],
+            'operation': 'getAPIToken'
+        }
+        resource = f'/orgs/{org_id}/apitokens/{apitoken_id}'
+
+        return self._session.get(metadata, resource)
+    
+    
+    # Not a JSON respone, need to look further into how this works
+    def getQRCodeForSDKInvite(self, org_id, sdkinvite_id):
+        """
+        **Get QR invite code for the SDK**
+        - org_id (string): (required)
+        - sdkinvite_id (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getAPIToken'],
+            'operation': 'getAPIToken'
+        }
+        resource = f'/orgs/{org_id}/sdkinvites/{sdkinvite_id}/qrcode'
+
+        return self._session.get(metadata, resource)
     
     
     def getLicenseSummary(self, org_id):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get a license summary for the org_id**
+        - org_id (string): (required)
         """
 
         metadata = {
@@ -195,9 +217,8 @@ class Organization(object):
     
     def getLicenseUsageBySite(self, org_id):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get a license breakdown of usage by site**
+        - org_id (string): (required)
         """
 
         metadata = {
@@ -209,12 +230,19 @@ class Organization(object):
         return self._session.get(metadata, resource)  
     
 
-    def getChangeLogs(self, org_id):
+    def getChangeLogs(self, org_id, **kwargs):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get Change logs for an org_id (Optional Filterable)**
+        - org_id (string): (required)
+        - start 
+        - end
+        - limit TODO - work out how limit will work with pagination
+        - site_id (string): (optional) specify the site_id of the site you wish to filter
+        - admin_name (string): (optional) admin name or email to filter on
+        - message (string): (optional) message of the change log e.g. 'Accessed Org "LiamOrg"' 
         """
+
+        kwargs.update(locals())
 
         metadata = {
             'tags': ['getChangeLogs'],
@@ -222,14 +250,38 @@ class Organization(object):
         }
         resource = f'/orgs/{org_id}/logs'
 
-        return self._session.get(metadata, resource)  
+        query_params = ['start', 'end', 'limit', 'site_id', 'admin_name', 'message']
+        params = {k.strip(): v for k, v in kwargs.items() if k.strip() in query_params}
+
+        return self._session.get(metadata, resource, params)
     
+    
+    #Need to confirm if this is working properly with the params method...
+    def getChangeLogCountByDistinctAttribute(self, org_id, **kwargs):
+        """
+        **Get a change log count by distinct attribute**
+        - org_id (string): (required)
+        - distinct (string): (optional) distinct can be admin_id | admin_name | message | site_id | default is adnin_name
+        """
+
+        kwargs.update(locals())
+
+        metadata = {
+            'tags': ['getChangeLogCountByDistinctAttribute'],
+            'operation': 'getChangeLogCountByDistinctAttribute'
+        }
+        resource = f'/orgs/{org_id}/logs'
+
+        query_params = ['count?distinct']
+        params = {k.strip(): v for k, v in kwargs.items() if k.strip() in query_params}
+
+        return self._session.get(metadata, resource, params)
+
     
     def getOrgStats(self, org_id):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get the stats of the specified org_id**
+        - org_id (string): (required)
         """
 
         metadata = {
@@ -243,9 +295,8 @@ class Organization(object):
     
     def getOrgSettings(self, org_id):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get the settings of the specified org_id**
+        - org_id (string): (required)
         """
 
         metadata = {
@@ -259,9 +310,8 @@ class Organization(object):
     
     def getOrgCertificates(self, org_id):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get the certificate(s) for the specified org_id**
+        -  (string): (required)
         """
 
         metadata = {

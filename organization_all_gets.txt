@@ -12,22 +12,23 @@ GET /api/v1/sites/:site_id
 GET /api/v1/sites/:site_id/stats
 GET /api/v1/orgs/:org_id/inventory - TODO: update the vc and unasigned filters.
 GET /api/v1/orgs/:org_id/inventory?model=AP41 - This is just a filter example in the Mist Documentation - All documented filters supported in getInventory()
-
-
-# WIP
-GET /api/v1/orgs/:org_id/stats/devices?limit=100
 GET /api/v1/orgs/:org_id/admins
 GET /api/v1/self
 GET /api/v1/orgs/:org_id/apitokens
 GET /api/v1/orgs/:org_id/apitokens/:apitoken_id
-GET /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id/qrcode
 GET /api/v1/orgs/:org_id/licenses
 GET /api/v1/orgs/:org_id/licenses/usages
-GET /api/v1/orgs/:org_id/logs?start=1431384000&end=1431298000&limit=100
-GET /api/v1/orgs/:org_id/logs/count?distinct=admin_name
 GET /api/v1/orgs/:org_id/stats
 GET /api/v1/orgs/:org_id/setting
 GET /api/v1/orgs/:org_id/cert
+
+
+# WIP
+GET /api/v1/orgs/:org_id/stats/devices?limit=100
+GET /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id/qrcode
+GET /api/v1/orgs/:org_id/logs?start=1431384000&end=1431298000&limit=100
+GET /api/v1/orgs/:org_id/logs/count?distinct=admin_name
+
 GET /api/v1/orgs/:org_id/crl
 GET /api/v1/installer/orgs/:org_id/devices
 GET /api/v1/installer/orgs/:org_id/sites
