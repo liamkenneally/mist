@@ -98,4 +98,15 @@ test25 = dash.organization.getDeviceProfiles(org_id)
 
 
 test26 = dash.organization.getPSK(org_id)
-print(test26)
+
+test27 = dash.organization.getCountryCodes()
+
+test28 = dash.organization.getsupportedChannels(country_code='GB')
+
+
+test29 = dash.organization.getInventory(org_id)
+print(test29)
+
+
+
+

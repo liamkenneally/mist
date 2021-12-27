@@ -9,27 +9,46 @@ class Organization(object):
 # update tags so that it represents the GUI for example for getSites() tags should be Organization > Site Configuration > Sites 
 # With operation tag as: getSites
 
-    def getSelf(self):
+
+    def getCountryCodes(self):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get a list of supported country_codes for Mist APs**
         """
 
         metadata = {
             'tags': ['getSelf'],
             'operation': 'getSelf'
         }
-        resource = f'/self'
+        resource = f'/const/countries'
 
         return self._session.get(metadata, resource)
+    
+    
+    def getsupportedChannels(self, **kwargs):
+        """
+        **Get a list of supported Mist AP Channels for selected country_code**
+        - country_code (string): country code in two character (See ISO3166-1 alpha-2 for more details)
+        https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+        """
+
+        kwargs.update(locals())
+
+        metadata = {
+            'tags': ['getsupportedChannels'],
+            'operation': 'getsupportedChannels'
+        }
+        resource = f'/const/ap_channels'
+
+        query_params = ['country_code']
+        params = {k.strip(): v for k, v in kwargs.items() if k.strip() in query_params}
+
+        return self._session.get(metadata, resource, params)
 
 
     def getSites(self, org_id):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get the sites that belong to a specific org_id**
+        - org_id (string): (required)
         """
 
         metadata = {
@@ -43,13 +62,12 @@ class Organization(object):
     
     def getSite(self, site_id):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get the site that belongs to the specific site_id**
+        - site_id (string): (required)
         """
 
         metadata = {
-            'tags': ['getSite'],
+            'tags': ['Organization', 'Site Confioguration', 'Sites', 'Site'],
             'operation': 'getSite'
         }
         resource = f'/sites/{site_id}'
@@ -59,27 +77,37 @@ class Organization(object):
     
     def getSiteStats(self, site_id):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get the site that belongs to the specific site_id**
+        - site_id (string): (required)
         """
 
         metadata = {
-            'tags': ['getSite', 'stats'],
+            'tags': ['Organization', 'Site Confioguration', 'Sites', 'Site'],
             'operation': 'getSiteStats'
         }
         resource = f'/sites/{site_id}/stats'
 
         return self._session.get(metadata, resource)
     
-    
-    
-    def getInventory(self, org_id):
+ 
+    def getInventory(self, org_id, **kwargs):
         """
-        **Return the DHCP subnet information for an appliance**
-        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
-        - serial (string): (required)
+        **Get an Inventory of the Mist Dashboard. (Optional Filterable)**
+        - org_id (string): (required)
+        - model (string): (optional) Specify the model of device you wish to get e.g 'AP33'
+        - serial (string): (optional) Specify the serial of a device you wish to get
+        - magic (string): (optional) Specify the magic of a device you wish to get
+        - site_id (string): (optional) Specify the site_id you would like to get a list of devices for
+        - type (string): (optional) Specify the device type you would like to get e.g. 'ap' or 'switch'
+        - mac (string): (optional) Specify the device mac that you would like to get e.g. 'a1ae23ace563'
+        - vc_mac (string): (optional) Specify the virtual chassis mac that you would like to get e.g. 'a1ae23ace563'
+        - vc (TBC): (optional): Not documented, but listed as a supported filter 
+        - unassigned (TBC): (optional): Not documented, but listed as a supported filter 
+        
+        
         """
+
+        kwargs.update(locals())
 
         metadata = {
             'tags': ['getInventory'],
@@ -87,7 +115,10 @@ class Organization(object):
         }
         resource = f'/orgs/{org_id}/inventory'
 
-        return self._session.get(metadata, resource)
+        query_params = ['model', 'serial', 'magic', 'site_id', 'type', 'mac', 'vc_mac', 'vc', 'unassigned']
+        params = {k.strip(): v for k, v in kwargs.items() if k.strip() in query_params}
+
+        return self._session.get(metadata, resource, params)
     
     
     # TODO - Need to look at how to handle pagination 
@@ -106,6 +137,22 @@ class Organization(object):
             'operation': 'getAdmins'
         }
         resource = f'/orgs/{org_id}/admins'
+
+        return self._session.get(metadata, resource)
+    
+    
+    def getSelf(self):
+        """
+        **Return the DHCP subnet information for an appliance**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
+        - serial (string): (required)
+        """
+
+        metadata = {
+            'tags': ['getSelf'],
+            'operation': 'getSelf'
+        }
+        resource = f'/self'
 
         return self._session.get(metadata, resource)
     
@@ -762,8 +809,31 @@ class Organization(object):
 
 
     
-    
-    
+###### Testing area ###  
+    def getAssetsSearch(self, org_id: str, **kwargs):
+        """
+        **Get the sent and received bytes for each uplink of a network.**
+        https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-uplinks-usage-history
+        - networkId (string): (required)
+        - t0 (string): The beginning of the timespan for the data. The maximum lookback period is 365 days from today.
+        - t1 (string): The end of the timespan for the data. t1 can be a maximum of 14 days after t0.
+        - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 14 days. The default is 10 minutes.
+        - resolution (integer): The time resolution in seconds for returned data. The valid resolutions are: 60, 300, 600, 1800, 3600, 86400. The default is 60.
+        """
+
+        kwargs.update(locals())
+
+        metadata = {
+            'tags': ['getAssetsSearch', 'monitor', 'uplinks', 'usageHistory'],
+            'operation': 'getAssetsSearch'
+        }
+        resource = f'/orgs/{org_id}/stats/assets/search'
+
+        query_params = ['mac', 'start', 'end']
+        params = {k.strip(): v for k, v in kwargs.items() if k.strip() in query_params}
+
+        return self._session.get(metadata, resource, params)
+###### Testing area ###  
 
 
 #==================================================== TODO POSTs ======================================================================#

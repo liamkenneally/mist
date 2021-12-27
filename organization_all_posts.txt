@@ -1,0 +1,66 @@
+# =================================================================================== NOTES =================================================================================== #
+A list of all POST APIs scraped from the Mist API documentation as of 26/12/2021 
+NOTE: This is for the "Organization" APIs at the moment - "Site" APIs will be added later https://api.mist.com/api/v1/docs/Org
+As these are implemented they will be marked as "WIP", "Testing" or "Completed" 
+# =================================================================================== NOTES =================================================================================== #
+
+
+POST /api/v1/orgs/:org_id/sites
+POST /api/v1/orgs/:org_id/inventory
+POST /api/v1/orgs/:org_id/invites
+POST /api/v1/invite/verify/:token
+POST /api/v1/orgs/:org_id/apitokens
+POST /api/v1/orgs/:org_id/sdkinvites
+POST /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id/email
+POST /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id/sms
+POST /api/v1/mobile/verify/:secret
+POST /api/v1/orgs/:org_id/sdktemplates
+POST /api/v1/orgs/:org_id/claim
+POST /api/v1/orgs
+POST /api/v1/orgs/:org_id/clone
+POST /api/v1/orgs/:org_id/setting/pcap_bucket/setup
+POST /api/v1/orgs/:org_id/setting/pcap_bucket/verify
+POST /api/v1/orgs/:org_id/cert/regenerate
+POST /api/v1/installer/orgs/:org_id/devices
+POST /api/v1/installer/orgs/:org_id/sites/:site_name/maps/:id
+POST /api/v1/installer/orgs/:org_id/sites/:site_name/maps/import
+POST /api/v1/installer/orgs/:org_id/devices/:mac/locate
+POST /api/v1/installer/orgs/:org_id/devices/:mac/unlocate
+POST /api/v1/installer/orgs/:org_id/devices/:mac/image1
+POST /api/v1/installer/orgs/:org_id/devices/:mac/image2
+POST /api/v1/installer/orgs/:org_id/devices/:mac/image3
+POST /api/v1/orgs/:org_id/rftemplates
+POST /api/v1/orgs/:org_id/networktemplates
+POST /api/v1/orgs/:org_id/aptemplates
+POST /api/v1/orgs/:org_id/networks
+POST /api/v1/orgs/:org_id/gatewaytemplates
+POST /api/v1/orgs/:org_id/inventory/replace
+POST /api/v1/orgs/:org_id/templates
+POST /api/v1/orgs/:org_id/templates/:template_id/clone
+POST /api/v1/orgs/:org_id/wlans/:wlan_id/portal_image
+POST /api/v1/orgs/:org_id/assets/import
+POST /api/v1/orgs/:org_id/deviceprofiles
+POST /api/v1/orgs/:org_id/deviceprofiles/:deviceprofile_id/assign    
+POST /api/v1/orgs/:org_id/deviceprofiles/:deviceprofile_id/unassign
+POST /api/v1/orgs/:org_id/psks
+POST /api/v1/orgs/:org_id/psks/import
+POST /api/v1/orgs/:org_id/maps/import
+POST /api/v1/orgs/:org_id/tickets
+POST /api/v1/orgs/:org_id/tickets/:ticket_id/comments
+POST /api/v1/orgs/:org_id/ssos
+POST /api/v1/orgs/:org_id/ssoroles
+POST /api/v1/orgs/:org_id/subscriptions
+POST /api/v1/orgs/:org_id/alarmtemplates
+POST /api/v1/orgs/:org_id/alarmtemplates/suppress
+POST /api/v1/orgs/:org_id/mxedges
+POST /api/v1/orgs/:org_id/mxedges/assign
+POST /api/v1/orgs/:org_id/mxedges/unassign
+POST /api/v1/orgs/:org_id/mxedges/:mxedge_id/unregister
+POST /api/v1/orgs/:org_id/mxedges/:mxedge_id/restart
+POST /api/v1/orgs/:org_id/mxedges/:mxedge_id/services/:name/:action
+POST /api/v1/orgs/:org_id/mxedges/:id/services/tunterm/bounce_port
+POST /api/v1/orgs/:org_id/mxedges/:id/services/tunterm/disconnect_aps
+POST /api/v1/orgs/:org_id/mxedges/upgrade
+POST /api/v1/orgs/:org_id/mxtunnels/:mxtunnel_id/preempt_aps
+POST /api/v1/orgs/:org_id/setting/blacklist
+POST /api/v1/orgs/:org_id/devices/upgrade

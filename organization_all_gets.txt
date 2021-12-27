@@ -1,0 +1,104 @@
+# =================================================================================== NOTES =================================================================================== #
+A list of all GET APIs scraped from the Mist API documentation as of 26/12/2021 
+NOTE: This is for the "Organization" APIs at the moment - "Site" APIs will be added later https://api.mist.com/api/v1/docs/Org
+As these are implemented they will be marked as "WIP", "Testing" or "Completed" 
+# =================================================================================== NOTES =================================================================================== #
+
+# COMPLETED 
+GET /api/v1/const/countries
+GET /api/v1/const/ap_channels?country_code=US
+GET /api/v1/orgs/:org_id/sites
+GET /api/v1/sites/:site_id
+GET /api/v1/sites/:site_id/stats
+GET /api/v1/orgs/:org_id/inventory - TODO: update the vc and unasigned filters.
+GET /api/v1/orgs/:org_id/inventory?model=AP41 - This is just a filter example in the Mist Documentation - All documented filters supported in getInventory()
+
+
+# WIP
+GET /api/v1/orgs/:org_id/stats/devices?limit=100
+GET /api/v1/orgs/:org_id/admins
+GET /api/v1/self
+GET /api/v1/orgs/:org_id/apitokens
+GET /api/v1/orgs/:org_id/apitokens/:apitoken_id
+GET /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id/qrcode
+GET /api/v1/orgs/:org_id/licenses
+GET /api/v1/orgs/:org_id/licenses/usages
+GET /api/v1/orgs/:org_id/logs?start=1431384000&end=1431298000&limit=100
+GET /api/v1/orgs/:org_id/logs/count?distinct=admin_name
+GET /api/v1/orgs/:org_id/stats
+GET /api/v1/orgs/:org_id/setting
+GET /api/v1/orgs/:org_id/cert
+GET /api/v1/orgs/:org_id/crl
+GET /api/v1/installer/orgs/:org_id/devices
+GET /api/v1/installer/orgs/:org_id/sites
+GET /api/v1/installer/orgs/:org_id/sites/:site_name/maps
+GET /api/v1/installer/sites/:site_name/optimize
+GET /api/v1/installer/orgs/:org_id/deviceprofiles
+GET /api/v1/installer/orgs/:org_id/rftemplates
+GET /api/v1/installer/orgs/:org_id/sitegroups
+GET /api/v1/installer/orgs/:org_id/alarmtemplates
+GET /api/v1/installer/orgs/:org_id/secpolicies
+GET /api/v1/orgs/:org_id/rftemplates
+GET /api/v1/orgs/:org_id/rftemplates/:rftemplate_id
+GET /api/v1/orgs/:org_id/networktemplates/:networktemplate_id
+GET /api/v1/orgs/:org_id/aptemplates
+GET /api/v1/orgs/:org_id/aptemplates/:aptemplate_id
+GET /api/v1/orgs/:org_id/networks/:network_id
+GET /api/v1/orgs/:org_id/gatewaytemplates/:gatewaytemplate_id
+GET /api/v1/orgs/:org_id/devices
+GET /api/v1/orgs/:org_id/templates
+GET /api/v1/orgs/:org_id/templates/:template_id
+GET /api/v1/orgs/:org_id/stats/assets
+GET /api/vi/orgs/:org_id/stats/assets/:asset_id
+GET /api/v1/orgs/:org_id/stats/assets/search
+GET /api/v1/orgs/:org_id/stats/assets/search?mac='fbc721cc3022'
+GET /api/v1/orgs/:org_id/stats/assets/count     
+GET /api/v1/orgs/:org_id/stats/assets/count?distinct=ibeacon_uuid
+GET /api/v1/orgs/:org_id/deviceprofiles
+GET /api/v1/orgs/:org_id/deviceprofiles/:deviceprofile_id
+GET /api/v1/orgs/:org_id/psks?name=Common&role=student&sort=ssid&limit=200&page=3
+GET /api/v1/orgs/:org_id/generated_reports
+GET /api/v1/orgs/:org_id/generated_reports/:generated_report/download?fmt=pdf
+GET /api/v1/orgs/:org_id/tickets?start=1546300800&end=-1d
+GET /api/v1/orgs/:org_id/tickets/:ticket_id
+GET /api/v1/orgs/:org_id/ssos
+GET /api/v1/orgs/:org_id/ssos/:sso_id/metadata
+GET /api/v1/orgs/:org_id/ssos/:sso_id/metadata.xml
+GET /api/v1/orgs/:org_id/ssos/:sso_id/failures
+GET /api/v1/orgs/:org_id/ssoroles
+GET /api/v1/self/subscriptions
+GET /api/v1/orgs/:org_id/devices/search?ip=10.2.16.205
+GET /api/v1/orgs/:org_id/devices/count?distinct=model
+GET /api/v1/orgs/:org_id/devices/events/search?ip=10.2.10.22
+GET /api/v1/orgs/:org_id/devices/events/count?distinct=model
+GET /api/v1/orgs/:org_id/clients/search?hostname=john&limit=10
+GET /api/v1/orgs/:org_id/clients/count?distinct=hostname
+GET /api/v1/orgs/:org_id/clients/events/search
+GET /api/v1/orgs/:org_id/clients/events/count?distinct=type
+GET /api/v1/orgs/:org_id/clients/sessions/search
+GET /api/v1/orgs/:org_id/clients/sessions/count
+GET /api/v1/orgs/:org_id/guests/search?wlan_id=88ffe630-95b8-11e8-b294-346895ed1b7d&limit=2
+GET /api/v1/orgs/:org_id/guests/count?distinct=auth_method
+GET /api/v1/orgs/:org_id/skyatp/events/count?distinct=type
+GET /api/v1/orgs/:org_id/skyatp/events/search
+GET /api/v1/orgs/:org_id/sites/search?vna_enabled=true
+GET /api/v1/orgs/:org_id/sites/count?distinct=country_code
+GET /api/v1/orgs/:org_id/alarmtemplates
+GET /api/v1/orgs/:org_id/alarmtemplates/:alarmtemplate_id
+GET /api/v1/const/alarm_defs
+GET /api/v1/orgs/:org_id/alarms/search
+GET /api/v1/orgs/:org_id/alarms/count
+GET /api/v1/orgs/:org_id/mxedges
+GET /api/v1/orgs/:org_id/mxedges/versions?channel=stable
+GET /api/v1/const/mxedge_models
+GET /api/v1/orgs/:org_id/stats/mxedges
+GET /api/v1/orgs/:org_id/stats/mxedges/:mxedge_id
+GET /api/v1/orgs/:org_id/stats/tunnels/search
+GET /api/v1/orgs/:org_id/stats/tunnels/count
+GET /api/v1/orgs/:org_id/ocdevices/outbound_ssh_cmd
+GET /api/v1/orgs/:org_id/128routers/register_cmd
+GET /api/v1/orgs/:org_id/junos/register_cmd
+GET /api/v1/orgs/:org_id/stats/vpn_peers/search
+GET /api/v1/orgs/:org_id/stats/vpn_peers/count
+GET /api/v1/orgs/:org_id/devices/upgrade/:id
+GET /api/v1/orgs/:org_id/devices/upgrade

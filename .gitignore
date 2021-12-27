@@ -8,3 +8,8 @@ mist/my_api_key.py
 my_api_key.py
 __pycache__
 mist_api__log__*
+
+
+# internal testing
+all_*
+scrape*

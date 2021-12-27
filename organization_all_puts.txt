@@ -1,0 +1,36 @@
+# =================================================================================== NOTES =================================================================================== #
+A list of all PUT APIs scraped from the Mist API documentation as of 26/12/2021 
+NOTE: This is for the "Organization" APIs at the moment - "Site" APIs will be added later https://api.mist.com/api/v1/docs/Org
+As these are implemented they will be marked as "WIP", "Testing" or "Completed" 
+# =================================================================================== NOTES =================================================================================== #
+
+
+PUT /api/v1/sites/:site_id
+PUT /api/v1/orgs/:org_id/inventory
+PUT /api/v1/orgs/:org_id/inventory
+PUT /api/v1/orgs/:org_id/inventory
+PUT /api/v1/orgs/:org_id/admins/:admin_id
+PUT /api/v1/orgs/:org_id/invites/:invite_id
+PUT /api/v1/orgs/:org_id/apitokens/:apitoken_id
+PUT /api/v1/orgs/:org_id/sdkclients/:sdkclient_id
+PUT /api/v1/orgs/:org_id/sdktemplates/:sdktemplate_id
+PUT /api/v1/orgs/:org_id/licenses
+PUT /api/v1/orgs/:org_id/licenses
+PUT /api/v1/orgs/:org_id
+PUT /api/v1/orgs/:org_id/setting
+PUT /api/v1/installer/orgs/:org_id/devices/:mac
+PUT /api/v1/installer/orgs/:org_id/sites/:site_name
+PUT /api/v1/installer/orgs/:org_id/sites/:site_name/maps/:id   
+PUT /api/v1/orgs/:org_id/rftemplates/:rftemplate_id
+PUT /api/v1/orgs/:org_id/networktemplates/:networktemplate_id
+PUT /api/v1/orgs/:org_id/aptemplates/:aptemplate_id
+PUT /api/v1/orgs/:org_id/networks/:network_id
+PUT /api/v1/orgs/:org_id/gatewaytemplates/:gatewaytemplate_id
+PUT /api/v1/orgs/:org_id/templates/:template_id
+PUT /api/v1/orgs/:org_id/deviceprofiles/:deviceprofile_id
+PUT /api/v1/orgs/:org_id/psks
+PUT /api/v1/orgs/:org_id/tickets/:ticket_id
+PUT /api/v1/orgs/:org_id/ssos/:sso_id
+PUT /api/v1/orgs/:org_id/ssoroles/:ssorole_id
+PUT /api/v1/orgs/:org_id/alarmtemplates/:alarmtemplate_id
+PUT /api/v1/orgs/:org_id/mxedges

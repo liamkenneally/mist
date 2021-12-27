@@ -1,0 +1,33 @@
+# =================================================================================== NOTES =================================================================================== #
+A list of all DELETE APIs scraped from the Mist API documentation as of 26/12/2021 
+NOTE: This is for the "Organization" APIs at the moment - "Site" APIs will be added later https://api.mist.com/api/v1/docs/Org
+As these are implemented they will be marked as "WIP", "Testing" or "Completed" 
+# =================================================================================== NOTES =================================================================================== #
+
+
+DELETE /api/v1/sites/:site_id
+DELETE /api/v1/orgs/:org_id/admins/:admin_id
+DELETE /api/v1/orgs/:org_id/invites/:invite_id
+DELETE /api/v1/orgs/:org_id/apitokens/:apitoken_id
+DELETE /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id
+DELETE /api/v1/orgs/:org_id/sdktemplates/:sdktemplate_id
+DELETE /api/v1/orgs/:org_id
+DELETE /api/v1/installer/orgs/:org_id/devices/:mac
+DELETE /api/v1/installer/orgs/:org_id/sites/:site_name/maps/:id
+DELETE /api/v1/installer/orgs/:org_id/devices/:mac/image1
+DELETE /api/v1/installer/orgs/:org_id/devices/:mac/image2
+DELETE /api/v1/installer/orgs/:org_id/devices/:mac/image3
+DELETE /api/v1/orgs/:org_id/rftemplates/:rftemplate_id
+DELETE /api/v1/orgs/:org_id/networktemplates/:networktemplate_id
+DELETE /api/v1/orgs/:org_id/aptemplates/:aptemplate_id
+DELETE /api/v1/orgs/:org_id/networks/:network_id
+DELETE /api/v1/orgs/:org_id/gatewaytemplates/:gatewaytemplate_id
+DELETE /api/v1/orgs/:org_id/templates/:template_id
+DELETE /api/v1/orgs/:org_id/wlans/:wlan_id/portal_image
+DELETE /api/v1/orgs/:org_id/deviceprofiles/:deviceprofile_id
+DELETE /api/v1/orgs/:org_id/ssos/:sso_id
+DELETE /api/v1/orgs/:org_id/ssoroles/:ssorole_id
+DELETE /api/v1/orgs/:org_id/subscriptions
+DELETE /api/v1/orgs/:org_id/alarmtemplates/:alarmtemplate_id
+DELETE /api/v1/orgs/:org_id/mxedges/:mxedge_id
+DELETE /api/v1/orgs/:org_id/setting/blacklist
