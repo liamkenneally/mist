@@ -8,24 +8,15 @@ As these are implemented they will be marked as "WIP", "Testing" or "Completed",
 POST /api/v1/orgs/:org_id/sites
 POST /api/v1/orgs/:org_id/inventory
 POST /api/v1/orgs/:org_id/invites
-
-
-
-
-
-
-
-
+POST /api/v1/invite/verify/:token
+POST /api/v1/orgs/:org_id/apitokens
 
 
 # WIP
+POST /api/v1/orgs/:org_id/sdkinvites
 
 
 # NOT IMPLEMENTED
-
-POST /api/v1/invite/verify/:token
-POST /api/v1/orgs/:org_id/apitokens
-POST /api/v1/orgs/:org_id/sdkinvites
 POST /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id/email
 POST /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id/sms
 POST /api/v1/mobile/verify/:secret

@@ -954,8 +954,8 @@ class Organization(object):
         - first_name (string): (optional) First name, used in the invitation text
         - last_name (string): (optional) Last name
         - privileges (list): (optional) List of privileges the admin has on the orgs/sites
-            - scope (string): (optional) Site | org | sitegroup
-            - role (string): (optional) Admin | write | read | helpdesk
+            - scope (string): (optional) site | org | sitegroup
+            - role (string): (optional) admin | write | read | helpdesk
             - site_id (string): (optional) Site id
         - hours (int): (optional) How long the invite should be valid, default is 1 day. Max is capped at 1 week
         """
@@ -994,6 +994,55 @@ class Organization(object):
         return self._session.post(metadata, resource, payload)
     
     
+    def createAPIToken(self, org_id: str, name: str, privileges: list, **kwargs):
+        """
+        **Create an API Token for a specific Org/Site with required Privileges**
+        - org_id (string): (required)
+        - name (string): (optional) Name of the API Token
+        - privileges (list): (optional) List of privileges the token has on the orgs/sites
+            - scope (string): (optional) site | org | sitegroup
+            - role (string): (optional) admin | write | read 
+        """
+
+        kwargs.update(locals())
+
+        metadata = {
+            'tags': ['createAPIToken'],
+            'operation': 'createAPIToken'
+        }
+        resource = f'/orgs/{org_id}/apitokens'
+
+        body_params = ['name', 'privileges']
+        payload = {k.strip(): v for k, v in kwargs.items() if k.strip() in body_params}
+
+        return self._session.post(metadata, resource, payload)
+    
+    
+    # WIP
+    def createSDKInvite(self, org_id: str, name: str, quota_limited: bool, quota: int, enabled: bool, **kwargs):
+        """
+        **Create an SDK Invite**
+        - org_id (string): (required)
+        - name (string): (optional) Name of the API Token
+        - privileges (list): (optional) List of privileges the token has on the orgs/sites
+            - scope (string): (optional) site | org | sitegroup
+            - role (string): (optional) admin | write | read 
+        """
+
+        kwargs.update(locals())
+
+        metadata = {
+            'tags': ['createAPIToken'],
+            'operation': 'createAPIToken'
+        }
+        resource = f'/orgs/{org_id}/sdkinvites'
+
+        body_params = ['name', 'quota_limited', 'quota', 'enabled']
+        payload = {k.strip(): v for k, v in kwargs.items() if k.strip() in body_params}
+
+        return self._session.post(metadata, resource, payload)
+    
+    
     
 
     
@@ -1009,13 +1058,42 @@ class Organization(object):
     
     #==================================================== TODO DELETEs ======================================================================#
     
+    def deleteSite(self, site_id: str):
+        """
+        **Delete a Site**
+        - site_id (string): (required)
+        """
+
+        metadata = {
+            'tags': ['deleteSite'],
+            'operation': 'deleteSite'
+        }
+        resource = f'/sites/{site_id}'
+
+        return self._session.delete(metadata, resource)
+
+    
+    def deleteAdmin(self, org_id: str, admin_id: str):
+        """
+        **Delete an invited Admin**
+        - org_id (string): (required)
+        - admin_id (string): (required)
+        """
+
+        metadata = {
+            'tags': ['deleteAdmin'],
+            'operation': 'deleteAdmin'
+        }
+        resource = f'/orgs/{org_id}/admins/{admin_id}'
+
+        return self._session.delete(metadata, resource)
+    
     
     def deleteInvitedAdmin(self, org_id: str, invite_id: str):
         """
-        **Delete a RF Profile**
-        https://developer.cisco.com/meraki/api-v1/#!delete-network-wireless-rf-profile
-        - networkId (string): (required)
-        - rfProfileId (string): (required)
+        **Delete an invited Admin**
+        - org_id (string): (required)
+        - invite_id (string): (required)
         """
 
         metadata = {
@@ -1023,5 +1101,21 @@ class Organization(object):
             'operation': 'deleteInvitedAdmin'
         }
         resource = f'/orgs/{org_id}/invites/{invite_id}'
+
+        return self._session.delete(metadata, resource)
+    
+    
+    def deleteAPIToken(self, org_id: str, apitoken_id: str):
+        """
+        **Delete an API Token**
+        - org_id (string): (required)
+        - apitoken_id (string): (required)
+        """
+
+        metadata = {
+            'tags': ['deleteAPIToken'],
+            'operation': 'deleteAPIToken'
+        }
+        resource = f'/ orgs/{org_id}/apitokens/{apitoken_id}'
 
         return self._session.delete(metadata, resource)

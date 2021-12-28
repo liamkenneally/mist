@@ -111,6 +111,7 @@ test30 = dash.organization.getAdmins(org_id)
 
 
 
+
 test31 = dash.organization.AddInventory(org_id, ListOfClaimCodes=["SXT2F-DW9TJ-SKWEQ", "AAAAA-AAAAA-AAAAA"])
 
 
@@ -121,10 +122,27 @@ test31 = dash.organization.AddInventory(org_id, ListOfClaimCodes=["SXT2F-DW9TJ-S
 #test34 = dash.organization.getAdmins(org_id)
 #print(test34)
 
-test33 = dash.organization.deleteInvitedAdmin(org_id, invite_id="9c16d84f-1487-424c-9cf7-5309d11a9561")
-print(test33)
+#test33 = dash.organization.deleteInvitedAdmin(org_id, invite_id="9c16d84f-1487-424c-9cf7-5309d11a9561")
+#print(test33)
 
-test34 = dash.organization.getAdmins(org_id)
-print(test34)
+#test34 = dash.organization.getAdmins(org_id)
+#print(test34)
+
+
+#test35 = dash.organization.getSites(org_id)
+
+#test36 = dash.organization.deleteSite(site_id="5ea92060-4650-416d-be12-1a01bf38e176")
+#print(test36)
+
+#test37 = dash.organization.deleteAdmin(org_id, admin_id="09bf26b5-f716-4106-93b7-5f9f221c0d2f")
+#print(test37)
+
+#test38 = dash.organization.createAPIToken(org_id, "Test_API_KEY", privileges=[{'scope':'org', 'role':'admin'}])
+#print(test38)
+
+test39 = dash.organization.getAPITokens(org_id)
+print(test39)
+
+#test40 = dash.organization.deleteAPIToken(org_id, apitoken_id='2114283e-80ad-40e5-bb2a-8c6e75bd8cde')
 
 
