@@ -140,8 +140,8 @@ test31 = dash.organization.AddInventory(org_id, ListOfClaimCodes=["SXT2F-DW9TJ-S
 #test38 = dash.organization.createAPIToken(org_id, "Test_API_KEY", privileges=[{'scope':'org', 'role':'admin'}])
 #print(test38)
 
-test39 = dash.organization.getAPITokens(org_id)
-print(test39)
+#test39 = dash.organization.getAPITokens(org_id)
+#print(test39)
 
 #test40 = dash.organization.deleteAPIToken(org_id, apitoken_id='2114283e-80ad-40e5-bb2a-8c6e75bd8cde')
 

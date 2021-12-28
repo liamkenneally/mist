@@ -1032,8 +1032,8 @@ class Organization(object):
         kwargs.update(locals())
 
         metadata = {
-            'tags': ['createAPIToken'],
-            'operation': 'createAPIToken'
+            'tags': ['createSDKInvite'],
+            'operation': 'createSDKInvite'
         }
         resource = f'/orgs/{org_id}/sdkinvites'
 
@@ -1042,9 +1042,85 @@ class Organization(object):
 
         return self._session.post(metadata, resource, payload)
     
+    # POST /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id/email
+    # POST /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id/sms
+    # POST /api/v1/mobile/verify/:secret
+    # POST /api/v1/orgs/:org_id/sdktemplates
     
     
+    def claimOrderByActivationCode(self, org_id: str, code: str, type: str, **kwargs):
+        """
+        **Create an SDK Invite**
+        - org_id (string): (required)
+        - code (string): (required) Activation code e.g. 'AAAAA-BBBBB-CCCCC-DDDDD'
+        - type (string): (optional) what to claim, license |inventory | all (default)
+        """
 
+        kwargs.update(locals())
+
+        metadata = {
+            'tags': ['claimOrderByActivationCode'],
+            'operation': 'claimOrderByActivationCode'
+        }
+        resource = f'/orgs/{org_id}/claim'
+
+        body_params = ['code', 'type']
+        payload = {k.strip(): v for k, v in kwargs.items() if k.strip() in body_params}
+
+        return self._session.post(metadata, resource, payload)
+    
+    
+    def createOrg(self, name: str, session_expiry: int, alarmtemplate_id: str, orggroup_id: list, allow_mist: bool, **kwargs):
+        """
+        **Create a new Org**
+        - name (string): (optional) org name
+        - session_expiry (int): (optional) how long the login session should last, in minutes, default is 1440 (24 hours), between 10 (min) and 20160 (2 weeks)
+        - alarmtemplate_id (string): (optional) Alarm Template ID, the default Alarm Template to use for the Org, can be override by Site
+        - orggroup_ids (list): (optional) list of OrgGroup ids
+        - allow_mist (bool): (optional) whether to allow Mist to look at this org, default is True
+        """
+
+        kwargs.update(locals())
+
+        metadata = {
+            'tags': ['createOrg'],
+            'operation': 'createOrg'
+        }
+        resource = f'/orgs'
+
+        body_params = ['name', 'session_expiry', 'alarmtemplate_id', 'orggroup_ids', 'allow_mist']
+        payload = {k.strip(): v for k, v in kwargs.items() if k.strip() in body_params}
+
+        return self._session.post(metadata, resource, payload)
+    
+    
+    def cloneOrg(self, org_id: str, name: str, **kwargs):
+        """
+        **Create an Org by cloning from another one. Org Settings, Templates, Device Profiles, Alarm Templates, RFTemplates, Security Policies, Wxlan Tags, Wxlan Tunnels,
+        Wxlan Rules, Org Wlans will be copied. Sites and Site Groups will not be copied, and therefore, the copied template will not be applied to any site/sitegroups.**
+        - org_id (string): required
+        - name (string): (optional) New org name
+        """
+
+        kwargs.update(locals())
+
+        metadata = {
+            'tags': ['cloneOrg'],
+            'operation': 'cloneOrg'
+        }
+        resource = f'/orgs/{org_id}/clone'
+
+        body_params = ['name']
+        payload = {k.strip(): v for k, v in kwargs.items() if k.strip() in body_params}
+
+        return self._session.post(metadata, resource, payload)
+    
+    
+    # POST /api/v1/orgs/:org_id/setting/pcap_bucket/setup
+    # POST /api/v1/orgs/:org_id/setting/pcap_bucket/verify
+    
+    
+    
     
     
     

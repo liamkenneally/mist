@@ -10,22 +10,21 @@ POST /api/v1/orgs/:org_id/inventory
 POST /api/v1/orgs/:org_id/invites
 POST /api/v1/invite/verify/:token
 POST /api/v1/orgs/:org_id/apitokens
+POST /api/v1/orgs/:org_id/claim
+POST /api/v1/orgs
+POST /api/v1/orgs/:org_id/clone
 
 
 # WIP
 POST /api/v1/orgs/:org_id/sdkinvites
-
-
-# NOT IMPLEMENTED
 POST /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id/email
 POST /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id/sms
 POST /api/v1/mobile/verify/:secret
 POST /api/v1/orgs/:org_id/sdktemplates
-POST /api/v1/orgs/:org_id/claim
-POST /api/v1/orgs
-POST /api/v1/orgs/:org_id/clone
 POST /api/v1/orgs/:org_id/setting/pcap_bucket/setup
 POST /api/v1/orgs/:org_id/setting/pcap_bucket/verify
+
+# NOT IMPLEMENTED
 POST /api/v1/orgs/:org_id/cert/regenerate
 POST /api/v1/installer/orgs/:org_id/devices
 POST /api/v1/installer/orgs/:org_id/sites/:site_name/maps/:id
