@@ -1195,3 +1195,51 @@ class Organization(object):
         resource = f'/ orgs/{org_id}/apitokens/{apitoken_id}'
 
         return self._session.delete(metadata, resource)
+    
+
+    def deleteSDKInvite(self, org_id: str, sdkinvite_id: str):
+        """
+        **Delete an SDK Invite**
+        - org_id (string): (required)
+        - sdkinvite_id (string): (required)
+        """
+
+        metadata = {
+            'tags': ['deleteSDKInvite'],
+            'operation': 'deleteSDKInvite'
+        }
+        resource = f'/orgs/{org_id}/sdkinvites/{sdkinvite_id}'
+
+        return self._session.delete(metadata, resource)
+
+    
+    def deleteSDKTemplate(self, org_id: str, sdktemplate_id: str):
+        """
+        **Delete an SDK Template**
+        - org_id (string): (required)
+        - sdktemplate_id (string): (required)
+        """
+
+        metadata = {
+            'tags': ['deleteSDKTemplate'],
+            'operation': 'deleteSDKTemplate'
+        }
+        resource = f'/orgs/{org_id}/sdktemplates/{sdktemplate_id}'
+
+        return self._session.delete(metadata, resource)
+    
+    
+    
+    def deleteOrg(self, org_id: str):
+        """
+        **Delete an Org**
+        - org_id (string): (required)
+        """
+
+        metadata = {
+            'tags': ['deleteOrg'],
+            'operation': 'deleteOrg'
+        }
+        resource = f'/orgs/{org_id}'
+
+        return self._session.delete(metadata, resource)

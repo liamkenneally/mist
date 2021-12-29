@@ -11,15 +11,12 @@ DELETE /api/v1/sites/:site_id
 DELETE /api/v1/orgs/:org_id/admins/:admin_id
 DELETE /api/v1/orgs/:org_id/invites/:invite_id
 DELETE /api/v1/orgs/:org_id/apitokens/:apitoken_id
-
-
-# NOT IMPLEMENTED
-
-
-
 DELETE /api/v1/orgs/:org_id/sdkinvites/:sdkinvite_id
 DELETE /api/v1/orgs/:org_id/sdktemplates/:sdktemplate_id
 DELETE /api/v1/orgs/:org_id
+
+# NOT IMPLEMENTED
+
 DELETE /api/v1/installer/orgs/:org_id/devices/:mac
 DELETE /api/v1/installer/orgs/:org_id/sites/:site_name/maps/:id
 DELETE /api/v1/installer/orgs/:org_id/devices/:mac/image1
